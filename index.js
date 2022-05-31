@@ -52,5 +52,5 @@ client.language.setLocale('es');
 require("./handlers/events.js")(client);
 require("./handlers/commands.js")(client);
 
-// client.login(config.token);
-client.login(process.env.TOKEN);
+client.login(config.token);
+// client.login(process.env.TOKEN);
