@@ -9,7 +9,7 @@ module.exports = {
         const user = interaction.options.getUser('user');
         if (user){
             const embed = new MessageEmbed().setColor(config.defaultSuccessColor)
-            .setDescription(client.language.__mf('avatar.objective', {username: user.username})).setImage(user.displayAvatarURL({format: 'png', dynamic: true, size: 1024}));
+            .setDescription(client.language.__mf('avatar.objective', {username: `${user.username}#${user.discriminator}`})).setImage(user.displayAvatarURL({format: 'png', dynamic: true, size: 1024}));
             return interaction.reply({embeds: [embed]});
         }
         else{
