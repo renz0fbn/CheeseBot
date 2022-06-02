@@ -8,8 +8,7 @@ module.exports = {
     async run(client, interaction){
         const text = interaction.options.getString('text');
         if (text){
-            interaction.reply({content: text});
-            console.log(interaction);
+            interaction.reply({"content": text});
         }
         else{
             const embed = new MessageEmbed().setColor(config.defaultErrorColor).setDescription("Usa `/say [texto]`");

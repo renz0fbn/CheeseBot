@@ -56,33 +56,13 @@ client.language.setLocale('es');
 require("./handlers/events.js")(client);
 require("./handlers/commands.js")(client);
 
-client.on('messageCreate', async (message) => {
-    if(message.content == "!!createEmb"){
-        const file = await message.attachments.first()?.url;
-        try {
-            message.channel.send('Reading the file! Fetching data...');
+// client.on('messageCreate', async (message) => {
+    // if(message.content == "!!createEmb"){
+
+              // message.channel.send("Hola Zaiker <:xd:888771538621460480>");
         
-            // fetch the file from the external URL
-            const response = await fetch(file);
-        
-            // if there was an error send a message with the status
-            if (!response.ok)
-              return message.channel.send(
-                'There was an error with fetching the file:',
-                response.statusText,
-              );
-        
-            // take the response stream and read it to completion
-            const text = await response.text();
-        
-            if (text) {
-              message.channel.send(JSON.parse(text));
-            }
-          } catch (error) {
-            console.log(error);
-          }
-    }
-})
+    // }
+// })
 
 client.login(config.token);
 // client.login(process.env.TOKEN);
