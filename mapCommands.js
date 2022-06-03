@@ -15,6 +15,7 @@ async function createSlash(){
             for (const file of comandFiles){
                 const command = require(`./commands/${category}/${file}`);
                 commands.push(command.data.toJSON());
+                console.log(`./commands/${category}/${file} added successfully`);
             }
         })
         await rest.put(

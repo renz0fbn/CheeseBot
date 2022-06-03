@@ -3,10 +3,7 @@ require('dotenv').config();
 
 // import global variables and data
 const config = require('./config.json');
-const i18n = require('i18n');
 const { join } = require('path');
-const { setInterval } = require('timers');
-const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -41,28 +38,12 @@ client.language.configure({
     
 })
 
-setInterval(updateStatus, 60000);
-
-async function updateStatus(){
-    const guildNum = client.guilds.cache.size;
-    const memberNum = client.users.cache.size;
-
-    await client.user.setActivity(`Servidores: ${guildNum} | Miembros: ${memberNum}`, { type: 'LISTENING' });
-}
-
 client.language.setLocale('es');
 
 
 require("./handlers/events.js")(client);
 require("./handlers/commands.js")(client);
 
-// client.on('messageCreate', async (message) => {
-    // if(message.content == "!!createEmb"){
-
-              // message.channel.send("Hola Zaiker <:xd:888771538621460480>");
-        
-    // }
-// })
-
 client.login(config.token);
+
 // client.login(process.env.TOKEN);
