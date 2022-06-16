@@ -4,6 +4,7 @@ const config = require('../../config.json');
 
 module.exports = {
     permissions: ['SEND_MESSAGES'],
+    userIds: [],
     data: new SlashCommandBuilder().setName('avatar').setDescription('Muestra el avatar de un usuario o el tuyo')
         .addUserOption(option => option.setName('user').setDescription('Usuario cuyo avatar quieres ver')),
     async run(client, interaction){

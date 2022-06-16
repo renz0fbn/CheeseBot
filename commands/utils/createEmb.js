@@ -12,6 +12,7 @@ const { MessageAttachment } = require('discord.js');
 
 module.exports = {
     permissions: ['ADMINISTRATOR'],
+    userIds: [],
     data: new SlashCommandBuilder().setName('create_embed').setDescription('Envia un embed mediante un archivo json a un canal especifico')
         .addAttachmentOption(option => option.setName('file').setDescription('Archivo json con los datos del embed').setRequired(true))
         .addAttachmentOption(option => option.setName('img').setDescription('Agregar una img al principio del embed (opcional)'))

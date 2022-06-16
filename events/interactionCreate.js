@@ -6,16 +6,27 @@ module.exports = {
 
         if(!command) return;
 
-        if(!interaction.memberPermissions.has(command.permissions)){
-            return interaction.reply({content: 'No tienes permiso para ejecutar esto maldito :monkey: '});
+        let perms;
+        try{
+            perms = interaction.memberPermissions.has(command.permissions);
+        }
+        catch(e){
+            perms = false;
         }
 
-        try{
+        if(perms || command.userIds.includes(interaction.user.id)){
+            try{
             await command.run(client, interaction);
         }
         catch(e){
             console.error(e);
             return interaction.reply({content: 'Algo salio mal contacte con @Dayron#1900'});
         }
+        }
+        else{
+            return interaction.reply({content: 'No tienes permiso para ejecutar esto maldito <a:Mono:982435400939348099> '});
+        }
+        
+        
     }
 }

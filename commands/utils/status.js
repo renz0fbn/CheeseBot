@@ -8,7 +8,8 @@ require("moment-duration-format");
 const diagramMaker = require('../../functions/diagramMaker.js')
 
 module.exports = {
-    permissions: ['SEND_MESSAGES'],
+    permissions: ['VIEW_AUDIT_LOG'],
+    userIds: [],
     data: new SlashCommandBuilder()
         .setName('status')
         .setDescription('Consulta el estado del bot'),

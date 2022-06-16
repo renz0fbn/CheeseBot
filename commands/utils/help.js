@@ -4,6 +4,7 @@ const config = require('../../config.json');
 
 module.exports = {
     permissions: ['SEND_MESSAGES'],
+    userIds: [],
     data: new SlashCommandBuilder().setName('help').setDescription('Mira lo que puedo hacer'),
     async run(client, interaction){
 
