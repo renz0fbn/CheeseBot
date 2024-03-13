@@ -1,12 +1,13 @@
 {
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "node --watch index.js"
   },
   "name": "cheesebot",
   "description": "A Discord bot that helps you with your cheese(server).",
   "version": "0.8.1",
   "engines": {
-    "node": "18.x"
+    "node": "20.x"
   },
   "dependencies": {
     "@discordjs/builders": "^0.13.0",
@@ -16,8 +17,13 @@
     "dotenv": "^16.0.1",
     "fs": "^0.0.1-security",
     "i18n": "^0.15.0",
-    "mongoose": "^6.3.5",
     "node-fetch": "^3.2.4",
     "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "standard": "^17.1.0"
+  },
+  "eslintConfig": {
+    "extends": "standard"
   }
 }
